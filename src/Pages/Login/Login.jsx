@@ -1,10 +1,10 @@
 import Lottie from "lottie-react";
-import React, { useContext } from "react";
-import registerLottieData from "../../assets/register-lottie.json";
+import loginLottieData from "../../assets/login-lottie.json";
 import AuthContext from "../../Context/AuthContext/AuthContext";
+import { useContext } from "react";
 
-const Register = () => {
-    const { register } = useContext(AuthContext);
+const Login = () => {
+    const { login } = useContext(AuthContext);
 
     // Handle Register Function
     const handleSubmit = (e) => {
@@ -17,7 +17,7 @@ const Register = () => {
         // show password validation error
 
         // Create user
-        register(email, password)
+        login(email, password)
             .then((result) => {
                 console.log(result.user);
             })
@@ -29,11 +29,11 @@ const Register = () => {
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center max-w-sm lg:text-left">
-                    <Lottie animationData={registerLottieData} />
+                    <Lottie animationData={loginLottieData} />
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <h1 className="text-5xl font-bold mx-auto pt-4 px-4">
-                        Register now!
+                        Login now!
                     </h1>
                     <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control">
@@ -59,11 +59,17 @@ const Register = () => {
                                 className="input input-bordered"
                                 required
                             />
+                            <label className="label">
+                                <a
+                                    href="#"
+                                    className="label-text-alt link link-hover"
+                                >
+                                    Forgot password?
+                                </a>
+                            </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">
-                                Register
-                            </button>
+                            <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
                 </div>
@@ -72,4 +78,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
